@@ -10,7 +10,7 @@
         <meta name="description" content="Icewall admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
         <meta name="keywords" content="admin template, Icewall Admin Template, dashboard template, flat admin template, responsive admin template, web app">
         <meta name="author" content="LEFT4CODE">
-        <title>Login - E-vote</title>
+        <title>Login - Santri</title>
         <!-- BEGIN: CSS Assets-->
         <link rel="stylesheet" href="{{asset('dashboards/dist/css/app.css')}}" />
         <!-- END: CSS Assets-->
@@ -23,7 +23,7 @@
                 <div class="hidden xl:flex flex-col min-h-screen">
                     <a href="" class="-intro-x flex items-center pt-5">
                         <img alt="Midone - HTML Admin Template" class="w-6" src="{{asset('dashboards/dist/images/logo.svg')}}">
-                        <span class="text-white text-lg ml-3"> E-vote</span> 
+                        <span class="text-white text-lg ml-3"> Santri</span> 
                     </a>
                     <div class="my-auto">
                         <img alt="Midone - HTML Admin Template" class="-intro-x w-1/2 -mt-16" src="{{asset('dashboards/dist/images/illustration.svg')}}">
@@ -51,12 +51,12 @@
                         </div>
                         <div class="intro-x flex text-slate-600 dark:text-slate-500 text-xs sm:text-sm mt-4">
                             <div class="flex items-center mr-auto">
-                                <input id="remember-me" type="checkbox" class="form-check-input border mr-2">
-                                <label class="cursor-pointer select-none" for="remember-me">Remember me</label>
+                                {{-- <input id="remember-me" type="checkbox" class="form-check-input border mr-2">
+                                <label class="cursor-pointer select-none" for="remember-me">Remember me</label> --}}
                             </div>
                             
                         </div>
-                        <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
+                        <div class="intro-x mt- xl:mt-6 text-center xl:text-left">
                             <button class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:mr-3 align-top"   id="btn">Login</button>
                             
                         </div>

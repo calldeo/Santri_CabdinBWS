@@ -21,25 +21,11 @@ class UserSeeder extends Seeder
         User:: create([
             'name' =>'Deo andreas',
             'level' =>'admin',
-            'email' =>'deo1@gmail.com',
-            'password' =>bcrypt('admin12345'),
+            'email' =>'deo@gmail.com',
+            'password' =>bcrypt('callmedeo'),
             'remember_token' =>Str::random(60),
         ]);
-        User:: create([
-            'name' =>'Muhammad Rayhan',
-            'level' =>'guru',
-            'email' =>'rayhan1@gmail.com',
-            'password' =>bcrypt('guru12345'),
-            'remember_token' =>Str::random(60),
-        ]);
-        User:: create([
-            'name' =>'Muhammad',
-            'level' =>'siswa',
-            'kelas' => 'X BFI',
-            'email' =>'gutu1@gmail.com',
-            'password' =>bcrypt('guru12345'),
-            'remember_token' =>Str::random(60),
-        ]);
+      
 
        
     }

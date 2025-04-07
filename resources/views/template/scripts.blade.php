@@ -38,6 +38,12 @@
         window.location.href = "/siswa";
     }
 	</script>
+     <script>
+    function redirectToLanding() {
+        // Ganti URL dengan URL halaman admin yang diinginkan
+        window.location.href = "/";
+    }
+	</script>
 	
 {{-- <script>
     $(document).ready(function() {

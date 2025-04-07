@@ -11,30 +11,16 @@
 				
 				<ul class="metismenu" id="menu">
 					@if (auth()->user()->level=="guru"|| auth()->user()->level == "admin"|| auth()->user()->level == "siswa")
-					<li class="nav-label first"></li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-144-layout"></i>
-							<span class="nav-text" >Home</span>
-						</a>
-						<ul aria-expanded="false">
-							<li><a href="/home">Dashboard</a></li>
-							
-						</ul>
-                        <ul aria-expanded="false">
-							<li><a href="/petunjuk">Petunjuk Pengunaan</a></li>
-							
-						</ul>
-
-                    </li>
-					@if (session('expired') === false)
-					 <li><a  href="/vote" aria-expanded="false">
-							<i class="flaticon-077-menu-1"></i>
-							<span class="nav-text">Vote</span>
-						</a>
-                       
-                    </li>
+					 <li class="nav-label first"></li>
+            <li><a  href="/home" aria-expanded="false">
+                    <i class="flaticon-144-layout"></i>
+                    <span class="nav-text">Home</span>
+                </a>
+               
+            </li>
+					 
 					@endif
-				@endif
+				 
 				@if ( auth()->user()->level == "admin")
 					<li class="nav-label first">Main Menu</li>
                     <li><a  href="/admin" aria-expanded="false">
@@ -43,39 +29,27 @@
 						</a>
                        
                     </li>
-					  <li><a  href="/guruu" aria-expanded="false">
+					  <li><a  href="/mutasi-keluar" aria-expanded="false">
 							<i class="flaticon-044-file"></i>
-							<span class="nav-text">Data Guru</span>
+							<span class="nav-text">Data Mutasi Keluar</span>
 						</a>
                        
                     </li>
-					<li><a  href="/siswa" aria-expanded="false">
+					<li><a  href="/mutasi-masuk" aria-expanded="false">
 							<i class="flaticon-044-file"></i>
-							<span class="nav-text">Data Siswa</span>
+							<span class="nav-text">Data Mutasi Masuk</span>
 						</a>
                        
                     </li>
-					<li><a  href="/calonosis" aria-expanded="false">
+					<li><a  href="/mgmp" aria-expanded="false">
 							<i class="flaticon-044-file"></i>
-							<span class="nav-text">Data Calon OSIS</span>
+							<span class="nav-text">Data MGMP</span>
 						</a>
                        
                     </li>
-					<li><a  href="/datapoling" aria-expanded="false">
-							<i class="flaticon-053-heart"></i>
-							<span class="nav-text">Data Polling</span>
-						</a>
-                       
-                    </li>
-					<li><a  href="/datavoted" aria-expanded="false">
-							<i class="flaticon-381-network"></i>
-							<span class="nav-text">Data Voted</span>
-						</a>
-                       
-                    </li>
-					<li><a  href="/setting" aria-expanded="false">
-							<i class="flaticon-381-settings-2"></i>
-							<span class="nav-text">Setting Tanggal</span>
+				<li><a  href="/siswa" aria-expanded="false">
+							<i class="flaticon-044-file"></i>
+							<span class="nav-text">Data Ijin Operasional</span>
 						</a>
                        
                     </li>

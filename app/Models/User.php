@@ -16,7 +16,7 @@ class User extends Authenticatable
 
     
         use HasFactory;
-        use SoftDeletes;
+        // use SoftDeletes;
 
         protected $table = 'users';
         protected $guarded = [];

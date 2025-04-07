@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
   public function landing(){
-    return view('sigin.logins');
+    return view('landing');
   }
     public function halamanlogin(){
         return view('sigin.logins');
@@ -32,7 +32,11 @@ class LoginController extends Controller
       ];
 
       if(Auth::attempt($infologin)) {
-        return redirect('home');
+        $user = Auth::user();
+        if (($user->level == "guru" || $user->level == "siswa") && !$user->hasVoted) {
+            return redirect('/vote');
+        }
+        return redirect('mutasi-keluar');
       }else{
         return redirect('/login')->withErrors('Username dan Password yang dimasukkan tidak valid');
       }
