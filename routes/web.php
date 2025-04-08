@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MutasiMasukController;
 use App\Http\Controllers\MutasiKeluarController;
+use App\Http\Controllers\IjinController;
 
 
 /*
@@ -83,4 +84,12 @@ Route::get('/mgmp/{id}/edit_mgmp  ',[MGMPController::class,'edit']);
 Route::put('/mgmp/{id}', [MGMPController::class, 'update'])->name('mgmp.update');
 
 
+
+
+Route::get('/ijin-operasi', [IjinController::class, 'index'])->name('ijin.index');
+Route::get('/add_ijin', [IjinController::class, 'create'])->name('ijin.create');
+Route::post('/ijin/store',[IjinController::class,'store']);
+Route::get('/ijin/{id}/edit_ijin  ',[IjinController::class,'edit']);
+Route::put('/ijin/{id}', [IjinController::class, 'update'])->name('ijin.update');
+Route::delete('/ijin/{id}', [IjinController::class, 'destroy'])->name('ijin.destroy');
 

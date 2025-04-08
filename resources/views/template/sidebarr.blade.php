@@ -47,7 +47,7 @@
 						</a>
                        
                     </li>
-				<li><a  href="/siswa" aria-expanded="false">
+				<li><a  href="/ijin-operasi" aria-expanded="false">
 							<i class="flaticon-044-file"></i>
 							<span class="nav-text">Data Ijin Operasional</span>
 						</a>
