@@ -18,7 +18,7 @@ class MGMPController extends Controller
 
        
         // Meneruskan data ke tampilan
-        return view('halaman.mgmp', compact('users'));
+        return view('mgmp.mgmp', compact('users'));
     }
 public function destroy($id)
 {
@@ -45,7 +45,7 @@ public function destroy($id)
     {
        
         // Meneruskan data ke tampilan
-        return view('tambah.add_mgmp');
+        return view('mgmp.add_mgmp');
     }
 
 
@@ -67,9 +67,9 @@ public function store(Request $request)
     $data['no_mutasi'] = $request->id_sk;
     $data['nip'] = $request->nip; 
     $data['status'] = 'proses'; 
-    MGMP::create($data);
 
-    return redirect('/mgmp')->with('success', 'Data Berhasil Ditambahkan');
+     $mutasi = MGMP::create($data);
+    return redirect('/MGMP')->with('success', 'MGMP berhasil ditambahkan dengan ID: ' . $mutasi->id_sk);
 }
 
 
@@ -79,7 +79,7 @@ public function store(Request $request)
      public function edit($id)
     {
         $mutasi = MGMP::findOrFail($id);
-        return view('edit.edit_mgmp', compact('mutasi'));
+        return view('mgmp.edit_mgmp', compact('mutasi'));
     }
 
 
@@ -108,7 +108,15 @@ public function store(Request $request)
         return redirect('/mgmp')->with('update_success', 'Data Berhasil Diperbarui!');
     }
 
+  public function ldgMgmp(){
+        $mgmp = MGMP::paginate(10);
+     return view('mgmp.ldg-mgmp',compact('mgmp'));
+  }
 
+     public function add_LdgMGMP()
+    {
+        return view('mgmp.add_ldg-mgmp');
+    }
 
 
 }

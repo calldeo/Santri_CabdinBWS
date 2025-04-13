@@ -3,7 +3,7 @@
 
 <head>
     @include('template.headerr')
-    <title>E-vote | {{ auth()->user()->level }} | Edit</title>
+    <title>Santri | {{ auth()->user()->level }} | Edit</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         .form-container {
@@ -33,7 +33,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                             </div>
                         @endif
-                        <form action="/mutasi-masuk/{{ $mutasi->id_mut_masuk }}" method="post" enctype="multipart/form-data">
+                        <form action="/mutasi-keluar/{{ $mutasi->id_mut_keluar }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">

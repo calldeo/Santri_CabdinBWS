@@ -3,7 +3,7 @@
 
 <head>
     @include('template.headerr')
-    <title>E-vote | {{ auth()->user()->level }} | Tambah Ijin</title>
+    <title>Santri | {{ auth()->user()->level }} | Tambah Ijin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         .form-container {

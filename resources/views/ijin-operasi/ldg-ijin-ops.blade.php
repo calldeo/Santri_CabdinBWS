@@ -9,14 +9,10 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
   <link href="{{ asset('ldg/img/team/logobeka.png') }}" rel="icon">
   <link href="{{ asset('ldg/img/team/logobeka.png') }}" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat|Poppins" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
   <link href="{{ asset('ldg/vendor/aos/aos.css') }}" rel="stylesheet">
   <link href="{{ asset('ldg/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('ldg/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -24,9 +20,11 @@
   <link href="{{ asset('ldg/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('ldg/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
   <link href="{{ asset('ldg/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
   <link href="{{ asset('ldg/css/style.css') }}" rel="stylesheet">
+  
+  <!-- SweetAlert2 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.min.js"></script>
 
   <style>
     .dropdown-menu {
@@ -64,7 +62,6 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container d-flex align-items-center justify-content-between">
       <div class="logo">
@@ -74,7 +71,6 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#features">Features</a></li>
           <li><a class="nav-link scrollto" href="/login">Login</a></li>
         </ul>
@@ -83,14 +79,12 @@
     </div>
   </header>
 
-  <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="container">
       <div class="row justify-content-between">
         <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
           <div data-aos="zoom-out">
-            <h1>Welcome To <span>Santri</span></h1>
-            <h2>Be a strong wall in the hard times and be a smiling sun in the good times.</h2>
+            <h1>Ijin Operasional</h1>
           </div>
         </div>
         <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
@@ -103,38 +97,13 @@
       <defs>
         <path id="wave-path" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" />
       </defs>
-      <g class="wave1">
-        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)" />
-      </g>
-      <g class="wave2">
-        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)" />
-      </g>
-      <g class="wave3">
-        <use xlink:href="#wave-path" x="50" y="9" fill="#fff" />
-      </g>
+      <g class="wave1"><use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)" /></g>
+      <g class="wave2"><use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)" /></g>
+      <g class="wave3"><use xlink:href="#wave-path" x="50" y="9" fill="#fff" /></g>
     </svg>
   </section>
 
   <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-            <a href="https://www.youtube.com/watch?v=StpBR2W8G5A" class="glightbox play-btn mb-4"></a>
-          </div>
-          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column justify-content-center py-5 px-lg-5" data-aos="fade-left">
-            <h3>About</h3>
-            <p>
-              Si-Beka adalah situs layanan jejaring sosial berbasis website untuk bimbingan konseling sekolah. Guru dapat mencatat data siswa bermasalah dan berprestasi, serta memberikan penanganan dan penghargaan berdasarkan kategori tertentu.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======= Features Section ======= -->
     <section id="features" class="features">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
@@ -153,27 +122,102 @@
               </ul>
             </div>
           </div>
-
           <div class="col-lg-3 col-md-4">
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
               <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-              <h3><a href="/login">MGMP</a></h3>
+              <h3><a href="/MGMP">MGMP</a></h3>
             </div>
           </div>
-
           <div class="col-lg-3 col-md-4">
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="150">
               <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-              <h3><a href="/login">Operasional</a></h3>
+              <h3><a href="/ijin-operasional">Operasional</a></h3>
             </div>
           </div>
         </div>
+  @if(session('success'))
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            Swal.fire({
+              icon: 'success',
+              title: 'Berhasil!',
+              text: "{{ session('success') }}",
+              footer: '<span style="font-size: 14px;">Simpan atau screenshot ID Mutasi ini untuk memudahkan pencarian di masa mendatang.</span>',
+              confirmButtonText: 'OK'
+            });
+          });
+        </script>
+        @endif
+
+        @if(session('update_success'))
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            Swal.fire({
+              icon: 'warning',
+              title: 'Perubahan Tersimpan!',
+              text: "{{ session('update_success') }}",
+              footer: '<span style="font-size: 16px;">Simpan atau screenshot ID Mutasi ini untuk memudahkan pencarian di masa mendatang.</span>',
+              confirmButtonText: 'OK'
+            });
+          });
+        </script>
+        @endif
+
+        <div class="container mt-4">
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <div class="input-group w-50">
+              <input id="searchInput" type="text" class="form-control" placeholder="Cari ID Ijin...">
+              <span class="input-group-text bg-primary text-white">
+                <i class="bi bi-search"></i>
+              </span>
+            </div>
+
+            <a href="/add_ijin-operasional" class="btn btn-success" title="Tambah Data">
+              <i class="fa fa-plus"></i> Tambah Ijin
+            </a>
+          </div>
+        </div>
+
+        <div class="container mt-2" id="tabelContainer" style="display: none;">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="mutasiTable">
+              <thead class="thead-dark">
+                <tr>
+                   <th><strong>No Ijin</strong></th>
+            <th><strong>File Pengajuan</strong></th>
+            <th><strong>Tracking</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($ijin as $m)
+            <td>{{ $m->id_ijin }}</td>
+            <td>
+                @if($m->file_pengajuan)
+                    <a href="{{ asset('storage/' . $m->file_pengajuan) }}" target="_blank">Lihat Draft</a>
+                @else
+                    <span class="text-danger">Tidak ada file</span>
+                @endif
+            </td>
+           
+                <td>
+            <span class="badge 
+                {{ $m->tracking == 'Pengajuan' ? 'badge-warning' : 
+                ($m->tracking == 'gagal' ? 'badge-danger' : 
+                ($m->tracking == 'validasi' ? 'badge-primary' : 'badge-success')) }}">
+                {{ $m->tracking }}
+            </span>
+        </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </section>
-
   </main>
 
-  <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
       <div class="copyright">
@@ -185,21 +229,16 @@
     </div>
   </footer>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
   <script src="{{ asset('ldg/vendor/purecounter/purecounter_vanilla.js') }}"></script>
   <script src="{{ asset('ldg/vendor/aos/aos.js') }}"></script>
   <script src="{{ asset('ldg/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('ldg/vendor/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ asset('ldg/vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('ldg/vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('ldg/js/main.js') }}"></script>
-
-  <script>
+<script>
     document.getElementById("mutasiDropdown").addEventListener("click", function (event) {
       event.preventDefault();
       let dropdownMenu = document.getElementById("mutasiMenu");
@@ -215,6 +254,35 @@
       }
     });
   </script>
+
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById('searchInput');
+    const tableRows = document.querySelectorAll('#mutasiTable tbody tr');
+    const tabelContainer = document.getElementById('tabelContainer');
+
+    searchInput.addEventListener('input', function () {
+      const searchValue = this.value.toLowerCase();
+      let found = false;
+
+      tableRows.forEach(row => {
+        const idMutasi = row.cells[0].textContent.toLowerCase();
+        if (idMutasi.includes(searchValue) && searchValue !== '') {
+          row.style.display = "";
+          found = true;
+        } else {
+          row.style.display = "none";
+        }
+      });
+
+      if (searchValue !== '' && found) {
+        tabelContainer.style.display = "block";
+      } else {
+        tabelContainer.style.display = "none";
+      }
+    });
+  });
+</script>
 </body>
 
 </html>

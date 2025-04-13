@@ -16,7 +16,7 @@ class AdminController extends Controller
         $users = User::where('level', 'admin')->paginate(10);
       
         // Meneruskan data ke tampilan
-        return view('halaman.admin', compact('users'));
+        return view('admin.admin', compact('users'));
     }
 
 public function destroy($id)
@@ -41,7 +41,7 @@ public function destroy($id)
     {
             
 
-    return view('tambah.add_admin');
+    return view('admin.add_admin');
     }
 
     public function store(Request $request)
@@ -88,7 +88,7 @@ public function destroy($id)
     // return view('edit.edit_guruu', compact('guruu'));
        
 
-    return view('edit.edit_admin', compact('admin'));
+    return view('admin.edit_admin', compact('admin'));
 }
 
 public function update(Request $request, $id)

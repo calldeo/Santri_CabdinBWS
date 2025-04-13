@@ -3,7 +3,7 @@
 
 <head>
     @include('template.headerr')
-    <title>E-vote | {{ auth()->user()->level }} | Tambah</title>
+    <title>Santri | {{ auth()->user()->level }} | Tambah</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         .form-container {
@@ -33,33 +33,19 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                             </div>
                         @endif
-                        <form action="/mutasi-masuk/store" method="post" enctype="multipart/form-data">
+                        <form action="/mgmp/store" method="post" enctype="multipart/form-data">
                             @csrf
+                        <div class="mb-3">
+                            <label for="nip" class="form-label"><strong>NIP</strong></label>
+                            <input type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" id="nip" value="{{ old('nip') }}" placeholder="Masukkan NIP" required>
+                            @error('nip')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                             <div class="mb-3">
-                                <label class="form-label"><strong>File SKK</strong></label>
-                                <input type="file" class="form-control" name="file_skk" required>
+                                <label class="form-label"><strong>File Draft</strong></label>
+                                <input type="file" class="form-control" name="file_draft" required>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label"><strong>File NISN</strong></label>
-                                <input type="file" class="form-control" name="file_nisn" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label"><strong>File Raport</strong></label>
-                                <input type="file" class="form-control" name="file_raport" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label"><strong>File SKM</strong></label>
-                                <input type="file" class="form-control" name="file_skm" required>
-                            </div>
-                            {{-- <div class="mb-3">
-                                <label class="form-label"><strong>Status</strong></label>
-                                <select class="form-select" name="status" required>
-                                    <option value="">-- Pilih Status --</option>
-                                    <option value="Proses">Proses</option>
-                                    <option value="Disetujui">Disetujui</option>
-                                    <option value="Ditolak">Ditolak</option>
-                                </select>
-                            </div> --}}
                             <div class="d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="button" class="btn btn-secondary" onclick="window.history.back()">Batal</button>

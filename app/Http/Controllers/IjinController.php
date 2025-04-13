@@ -15,12 +15,12 @@ class IjinController extends Controller
 
        
         
-        return view('halaman.ijin-ops', compact('users'));
+        return view('ijin-operasi.ijin-ops', compact('users'));
     }
 
     public function create()
     {
-        return view('tambah.add_ijin');
+        return view('ijin-operasi.add_ijin');
     }
 
     public function store(Request $request)
@@ -35,15 +35,15 @@ class IjinController extends Controller
         }
 
         $data['tracking'] = 'Pengajuan'; // default status
-        IjinOps::create($data);
-
-        return redirect('/ijin-operasi')->with('success', 'Data berhasil ditambahkan');
+      
+        $mutasi = IjinOps::create($data);
+    return redirect('/ijin-operasional')->with('success', 'Ijin Operasi berhasil ditambahkan dengan ID: ' . $mutasi->id_ijin);
     }
 
     public function edit($id)
     {
         $ijin = IjinOps::findOrFail($id);
-        return view('edit.edit_ijin', compact('ijin'));
+        return view('ijin-operasi.edit_ijin', compact('ijin'));
     }
 
     public function update(Request $request, $id)
@@ -80,5 +80,16 @@ class IjinController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data!');
         }
+    }
+
+    
+  public function ldgIjin(){
+        $ijin = IjinOps::paginate(10);
+     return view('ijin-operasi.ldg-ijin-ops',compact('ijin'));
+  }
+
+   public function add_LdgIjin()
+    {
+        return view('ijin-operasi.add_ldg-ijin');
     }
 }

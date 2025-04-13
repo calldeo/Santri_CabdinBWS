@@ -4,7 +4,7 @@
 
 <head>
     @include('template.headerr')
-    <title>E-vote | {{auth()->user()->level}} | Edit</title>
+    <title>Santri | {{auth()->user()->level}} | Edit</title>
 </head>
 <body>
 

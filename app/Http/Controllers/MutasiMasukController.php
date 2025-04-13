@@ -18,7 +18,7 @@ class MutasiMasukController extends Controller
 
        
         // Meneruskan data ke tampilan
-        return view('halaman.mutasi-masuk', compact('users'));
+        return view('mutasi-masuk.mutasi-masuk', compact('users'));
     }
  public function destroy($id)
     {
@@ -54,7 +54,7 @@ class MutasiMasukController extends Controller
     {
        
         // Meneruskan data ke tampilan
-        return view('tambah.add_mutasi-masuk');
+        return view('mutasi-masuk.add_mutasi-masuk');
     }
 
 
@@ -85,9 +85,10 @@ public function store(Request $request)
     $data['no_mutasi'] = $request->id_mut_keluar;
     $data['status'] = 'proses'; // Atur status default
 
-    MutasiMasuk::create($data);
+$mutasi = MutasiMasuk::create($data);
+return redirect('/mutasi/masuk')->with('success', 'Mutasi berhasil ditambahkan dengan ID: ' . $mutasi->id_mut_masuk);
+                
 
-    return redirect('/mutasi-masuk')->with('success', 'Data Berhasil Ditambahkan');
 }
 
 
@@ -97,7 +98,7 @@ public function store(Request $request)
      public function edit($id)
     {
         $mutasi = MutasiMasuk::findOrFail($id);
-        return view('edit.edit_mutasi-masuk', compact('mutasi'));
+        return view('mutasi-masuk.edit_mutasi-masuk', compact('mutasi'));
     }
 
 
@@ -141,7 +142,17 @@ public function store(Request $request)
         return redirect('/mutasi-masuk')->with('update_success', 'Data Berhasil Diperbarui!');
     }
 
+     public function ldgMutasiMasuk(){
+        $mutasi = MutasiMasuk::paginate(10);
+     return view('mutasi-masuk.ldg-mutasi-masuk',compact('mutasi'));
+  }
 
+     public function add_LdgMutasiMasuk()
+    {
+       
+    
+        return view('mutasi-masuk.add_ldg-mutasi-masuk');
+    }
 
 
 }

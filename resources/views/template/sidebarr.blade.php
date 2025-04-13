@@ -12,12 +12,12 @@
 				<ul class="metismenu" id="menu">
 					@if (auth()->user()->level=="guru"|| auth()->user()->level == "admin"|| auth()->user()->level == "siswa")
 					 <li class="nav-label first"></li>
-            <li><a  href="/home" aria-expanded="false">
+            {{-- <li><a  href="/home" aria-expanded="false">
                     <i class="flaticon-144-layout"></i>
                     <span class="nav-text">Home</span>
                 </a>
                
-            </li>
+            </li> --}}
 					 
 					@endif
 				 
@@ -56,7 +56,7 @@
 				@endif
                 </ul>
 				<div class="copyright">
-					<p><strong>E-Vote </strong> © 2024 All Rights Reserved</p>
+					<p><strong>Santri </strong> © 2025 All Rights Reserved</p>
 					<p class="fs-12">Made with <span class="heart"></span> by Deo Andreas</p>
 				</div>
 			</div>

@@ -3,7 +3,7 @@
 
 <head>
     @include('template.headerr')
-    <title>E-vote | {{auth()->user()->level}} | Admin</title>
+    <title>Santri | {{auth()->user()->level}} | Admin</title>
     
 </head>
 
@@ -80,16 +80,10 @@
                                 <table id="adminTable" class="table table-responsive-md">
                                     <thead>
                                         <tr>
-                                            <th style="width:50px;">
-                                                <div class="custom-control custom-checkbox checkbox-secondary check-lg mr-3">
-                                                    <input type="checkbox" class="custom-control-input" id="checkAll" required="">
-                                                    <label class="custom-control-label" for="checkAll"></label>
-                                                </div>
-                                            </th>
+                                          
                                             <th><strong>ID</strong></th>
                                             <th><strong>Nama/Email</strong></th>
                                             <th><strong>Level</strong></th>
-                                            <th><strong>Status</strong></th>
                                             <th style="text-align: center"><strong>Option</strong></th>
                                         </tr>
                                     </thead>
@@ -97,12 +91,7 @@
                                         @foreach($users as $g)
                                         @if($g->level == 'admin')
                                         <tr>
-                                            <td>
-                                                <div class="custom-control custom-checkbox checkbox-secondary check-lg mr-3">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheckBox2" required="">
-                                                    <label class="custom-control-label" for="customCheckBox2"></label>
-                                                </div>
-                                            </td>
+                                         
                                             <td>
                                                 <h6>{{$g->id}}</h6>
                                             </td>
@@ -117,16 +106,7 @@
                                             </td>
                                             <td><span class="badge badge-lg badge-secondary light">{{$g->level}}</span></td>
                                            
-                                                
-                                            <td>
-                                                @if($g->status_pemilihan == 'Belum Memilih')
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa fa-circle text-warning mr-1"></i>Belum Memilih</div>
-                                                @elseif($g->status_pemilihan == 'Sudah Memilih')
-                                                <div class="d-flex align-items-center">
-                                                    <i class="fa fa-circle text-success mr-1"></i>Sudah Memilih</div>
-                                                @endif
-                                            </td>                                            
+                                                                                  
                                             <td class="text-align: left;">
                                                 <div class="d-flex justify-content-center">
                                                 <form id="editForm_{{ $g->id }}" action="/admin/{{ $g->id }}/edit_admin" method="GET">

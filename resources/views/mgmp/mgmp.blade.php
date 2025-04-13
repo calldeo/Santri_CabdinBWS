@@ -3,7 +3,7 @@
 
         <head>
             @include('template.headerr')
-            <title>Santri | {{auth()->user()->level}} | Ijin Operasional </title>
+            <title>Santri | {{auth()->user()->level}} | MGMP </title>
         </head>
 
         <body>
@@ -24,13 +24,13 @@
                             <div class="col-sm-6 p-md-0">
                                 <div class="welcome-text">
                                     <h4>Hi, welcome back!</h4>
-                                <p class="mb-0">Data Ijin Operasional</p>
+                                <p class="mb-0">Data MGMP</p>
                             </div>
                         </div>
                         <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Table</a></li>
-                                <li class="breadcrumb-item active"><a href="javascript:void(0)">Ijin Operasional</a></li>
+                                <li class="breadcrumb-item active"><a href="javascript:void(0)">MGMP</a></li>
                             </ol>
                         </div>
                     </div>
@@ -40,16 +40,16 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Ijin Operasional</h4>
+                                    <h4 class="card-title">MGMP</h4>
                                     <div class="text-right">
                                         <div class="input-group search-area right d-lg-inline-flex d-none">
-    <input id="searchInput" type="text" class="form-control" placeholder="Cari ID Mutasi...">
+    <input id="searchInput" type="text" class="form-control" placeholder="Cari ID SK ...">
                                         </div>
 
 
     
 
-                                        <a href="/add_ijin" class="btn btn-success" title="Add">
+                                        <a href="/add_mgmp" class="btn btn-success" title="Add">
                                             <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
@@ -71,43 +71,42 @@
      <table class="table table-responsive-md">
     <thead>
         <tr>
-            <th><strong>No Ijin</strong></th>
-            <th><strong>File Pengajuan</strong></th>
-            <th><strong>Tracking</strong></th>
+            <th><strong>No SK</strong></th>
+            <th><strong>NIP</strong></th>
+            <th><strong>File Draft</strong></th>
+            <th><strong>Status</strong></th>
             <th style="text-align: center;"><strong>Opsi</strong></th>
         </tr>
     </thead>
     <tbody id="mutasiTable">
         @foreach($users as $m)
         <tr>
-            <td>{{ $m->id_ijin }}</td>
+            <td>{{ $m->id_sk }}</td>
+            <td>{{ $m->nip }}</td>
             <td>
-                @if($m->file_pengajuan)
-                    <a href="{{ asset('storage/' . $m->file_pengajuan) }}" target="_blank">Lihat Draft</a>
+                @if($m->file_draft)
+                    <a href="{{ asset('storage/' . $m->file_draft) }}" target="_blank">Lihat Draft</a>
                 @else
                     <span class="text-danger">Tidak ada file</span>
                 @endif
             </td>
            
-                <td>
-            <span class="badge 
-                {{ $m->tracking == 'Pengajuan' ? 'badge-warning' : 
-                ($m->tracking == 'gagal' ? 'badge-danger' : 
-                ($m->tracking == 'validasi' ? 'badge-primary' : 'badge-success')) }}">
-                {{ $m->tracking }}
-            </span>
-        </td>
-
+            <td>
+                <span class="badge 
+                {{ $m->status == 'proses' ? 'badge-warning' : ($m->status == 'gagal' ? 'badge-danger' : 'badge-success') }}">
+                    {{ $m->status }}
+                </span>
+            </td>
             <td class="text-center">
                 <div class="btn-group">
-                    <a href="{{ url('/ijin/' . $m->id_ijin . '/edit_ijin') }}" class="btn btn-warning btn-sm mx-1" title="Edit">
+                    <a href="{{ url('/mgmp/' . $m->id_sk . '/edit_mgmp') }}" class="btn btn-warning btn-sm mx-1" title="Edit">
                         <i class="fa fa-pencil"></i>
                     </a>
                 </div>
-                <form action="{{ route('ijin.destroy', $m->id_ijin) }}" method="POST" class="d-inline delete-form">
+                <form action="{{ route('mgmp.destroy', $m->id_sk) }}" method="POST" class="d-inline delete-form">
                     @csrf
                     @method('DELETE')
-                    <button type="button" class="btn btn-danger btn-sm mx-1 delete-btn" data-id="{{ $m->id_ijin }}" title="Hapus">
+                    <button type="button" class="btn btn-danger btn-sm mx-1 delete-btn" data-id="{{ $m->id_sk }}" title="Hapus">
                         <i class="fa fa-trash"></i>
                     </button>
                 </form>

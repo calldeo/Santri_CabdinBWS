@@ -66,6 +66,9 @@ route::get('/add_mutasi-keluar',[MutasiKeluarController::class,'add_MutasiKeluar
 Route::post('/mutasi-keluar/store',[MutasiKeluarController::class,'store']);
 Route::get('/mutasi-keluar/{id}/edit_mutasi-keluar  ',[MutasiKeluarController::class,'edit']);
 Route::put('/mutasi-keluar/{id}', [MutasiKeluarController::class, 'update'])->name('mutasi-keluar.update');
+route::get('/mutasi/keluar',[MutasiKeluarController::class,'ldgMutasiKeluar'])->name('ldgMutasiKeluar');
+route::get('/add/mutasi/keluar',[MutasiKeluarController::class,'add_ldgMutasiKeluar'])->name('add_ldgMutasiKeluar');
+
 
 
 route::get('/mutasi-masuk',[MutasiMasukController::class,'mutasiMasuk'])->name('mutasiMasuk');
@@ -74,6 +77,10 @@ route::get('/add_mutasi-masuk',[MutasiMasukController::class,'add_MutasiMasuk'])
 Route::post('/mutasi-masuk/store',[MutasiMasukController::class,'store']);
 Route::get('/mutasi-masuk/{id}/edit_mutasi-masuk  ',[MutasiMasukController::class,'edit']);
 Route::put('/mutasi-masuk/{id}', [MutasiMasukController::class, 'update'])->name('mutasi-masuk.update');
+route::get('/mutasi/masuk',[MutasiMasukController::class,'ldgMutasiMasuk'])->name('ldgMutasiMasuk');
+route::get('/add/mutasi/masuk',[MutasiMasukController::class,'add_ldgMutasiMasuk'])->name('add_ldgMutasiMasuk');
+
+
 
 
 route::get('/mgmp',[MGMPController::class,'MGMP'])->name('MGMP');
@@ -82,6 +89,10 @@ route::get('/add_mgmp',[MGMPController::class,'add_Mgmp'])->name('add_Mgmp');
 Route::post('/mgmp/store',[MGMPController::class,'store']);
 Route::get('/mgmp/{id}/edit_mgmp  ',[MGMPController::class,'edit']);
 Route::put('/mgmp/{id}', [MGMPController::class, 'update'])->name('mgmp.update');
+route::get('/MGMP',[MGMPController::class,'ldgMgmp'])->name('ldgMgmp');
+route::get('/add_MGMP',[MGMPController::class,'add_LdgMgmp'])->name('add_LdgMgmp');
+
+
 
 
 
@@ -92,4 +103,7 @@ Route::post('/ijin/store',[IjinController::class,'store']);
 Route::get('/ijin/{id}/edit_ijin  ',[IjinController::class,'edit']);
 Route::put('/ijin/{id}', [IjinController::class, 'update'])->name('ijin.update');
 Route::delete('/ijin/{id}', [IjinController::class, 'destroy'])->name('ijin.destroy');
+Route::get('/ijin-operasional', [IjinController::class, 'ldgIjin'])->name('ldgIjin');
+route::get('/add_ijin-operasional',[IjinController::class,'add_LdgIjin'])->name('add_LdgIjin');
+
 

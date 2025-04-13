@@ -3,7 +3,7 @@
 
 <head>
     @include('template.headerr')
-    <title>E-vote | {{ auth()->user()->level }} | Edit Ijin</title>
+    <title>Santri | {{ auth()->user()->level }} | Edit</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         .form-container {
@@ -26,46 +26,44 @@
             <div class="row justify-content-center mt-5">
                 <div class="col-lg-8">
                     <div class="form-container">
-                        <h3 class="text-center mb-4">Edit Data Ijin</h3>
-
+                        <h3 class="text-center mb-4">Edit Data</h3>
                         @if(session('error'))
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <strong>Error!</strong> {{ session('error') }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                             </div>
                         @endif
-
-                        <form action="/ijin/{{ $ijin->id_ijin }}" method="post" enctype="multipart/form-data">
+                        <form action="/mgmp/{{ $mutasi->id_sk }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-
                             <div class="mb-3">
-                                <label class="form-label"><strong>File Pengajuan</strong></label>
-                                <input type="file" class="form-control @error('file_pengajuan') is-invalid @enderror" name="file_pengajuan">
-                                @if($ijin->file_pengajuan)
-                                    <p class="mt-1"><a href="{{ asset('storage/' . $ijin->file_pengajuan) }}" target="_blank">Lihat File</a></p>
-                                @endif
-                                @error('file_pengajuan')
+                                <label class="form-label"><strong>NIP</strong></label>
+                                <input type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" value="{{ old('nip', $mutasi->nip) }}" required>
+                                @error('nip')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label"><strong>Tracking</strong></label>
-                                <select class="form-select @error('tracking') is-invalid @enderror" name="tracking" required>
-                                    <option value="pengajuan" {{ $ijin->tracking == 'pengajuan' ? 'selected' : '' }}>Pengajuan</option>
-                                    <option value="validasi" {{ $ijin->tracking == 'validasi' ? 'selected' : '' }}>Validasi</option>
-                                    <option value="gagal" {{ $ijin->tracking == 'gagal' ? 'selected' : '' }}>Gagal</option>
-                                    <option value="selesai" {{ $ijin->tracking == 'selesai' ? 'selected' : '' }}>Selesai</option>
+                                <label class="form-label"><strong>File Draft</strong></label>
+                                <input type="file" class="form-control" name="file_draft">
+                                @if($mutasi->file_draft)
+                                    <p class="mt-1"><a href="{{ asset('storage/' . $mutasi->file_draft) }}" target="_blank">Lihat Draft</a></p>
+                                @endif
+                            </div>
+                       
+                            <div class="mb-3">
+                                <label class="form-label"><strong>Status</strong></label>
+                                <select class="form-select" name="status" required>
+                                    <option value="proses" {{ $mutasi->status == 'proses' ? 'selected' : '' }}>proses</option>
+                                    <option value="selesai" {{ $mutasi->status == 'selesai' ? 'selected' : '' }}>selesai</option>
+                                    <option value="gagal" {{ $mutasi->status == 'gagal' ? 'selected' : '' }}>gagal</option>
                                 </select>
-                                @error('tracking')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
                             </div>
 
                             <div class="d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
-                                <a href="{{ url()->previous() }}" class="btn btn-secondary">Batal</a>
+                                <button type="button" class="btn btn-secondary" onclick="window.history.back()">Batal</button>
                             </div>
                         </form>
                     </div>
